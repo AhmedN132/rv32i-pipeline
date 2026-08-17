@@ -13,8 +13,15 @@ module regfile (
     initial begin
         for (i = 0; i < 32; i = i + 1) regs[i] = '0;
     end
-    assign rv1 = (rs1 == 0) ? 32'b0 : regs[rs1];
-    assign rv2 = (rs2 == 0) ? 32'b0 : regs[rs2];
+    assign rv1 =
+    (rs1 == 0) ? 32'b0 :
+    (we && rd != 0 && rd == rs1) ? wd :
+    regs[rs1];
+
+assign rv2 =
+    (rs2 == 0) ? 32'b0 :
+    (we && rd != 0 && rd == rs2) ? wd :
+    regs[rs2];
     always_ff @(posedge clk) begin
         if (we && rd != 0) regs[rd] <= wd;
         regs[0] <= 32'b0;
