@@ -68,13 +68,9 @@ These tests helped establish a more systematic approach to verification rather t
 ### What I Would Do Differently
 If I were to rebuild this project, I would make a few improvements to both the development process and the processor itself.
 - **Develop incrementally:** Begin with a simple single-cycle processor before introducing pipelining, forwarding, and hazard detection. This would make it easier to isolate functionality and identify where errors originate.
-
 - **Expand verification coverage:** Introduce more directed corner-case tests, randomized instruction sequences, and reference-model comparisons to verify behavior beyond the existing regression tests.
-
 - **Improve modularity:** Further separate pipeline control, forwarding, and hazard detection logic into dedicated modules to simplify debugging and future modifications.
-
 - **Expand instruction support:** Extend the currently implemented RV32I subset to support additional arithmetic, shift, comparison, load/store, and control-flow instructions.
-
 - **Evaluate timing and performance:** Use synthesis and timing analysis to better understand the critical path, hardware resource utilization, and maximum achievable clock frequency.
 
 ### Final Takeaway
